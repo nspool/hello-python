@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>hello-python</title>
+    <style>
+      body { background-color: #eeffff; }
+    </style>
+    <script type="text/javascript">
+      function loadXMLDoc() {
+	  var xmlhttp = new XMLHttpRequest();
+	  xmlhttp.onreadystatechange = function() {
+              if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+		  if (xmlhttp.status == 200) {
+		      document.getElementById("posts").innerHTML = xmlhttp.responseText;
+		  }
+		  else if (xmlhttp.status == 400) {
+		      console.debug('There was an error 400');
+		  }
+		  else {
+		      console.debug('something else other than 200 was returned');
+		  }
+              }
+	  };
+
+	  xmlhttp.open("GET", "/posts", true);
+	  xmlhttp.send();
+      }
+      loadXMLDoc();
+    </script>
+  </head>
+  <body>
+    <div width='250px'>
+      <form action="/" method="post">
+	<input type="text" name="post" value="post">
+	<input type="submit" value="Submit">
+      </form>
+    <div id="posts"></div>
+  </body>
+</html>
