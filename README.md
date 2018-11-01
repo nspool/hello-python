@@ -1,3 +1,3 @@
 # hello-python
 
-A very basic Twitter-lite clone for learning Python.
+Incomplete tiny micro-blog. For learning Python 3.
